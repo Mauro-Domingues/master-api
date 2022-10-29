@@ -1,0 +1,26 @@
+{
+  "name": "master-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "master-api": "bin/server.js"
+  },
+  "scripts": {
+    "dev": "nodemon src/controllers/objectController.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^8.5.1",
+    "typeorm": "^0.3.10"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20",
+    "ps": "^1.0.0"
+  }
+}
