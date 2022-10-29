@@ -2,44 +2,44 @@ import { repository } from '../database/repositories/objectRepository.js' // uni
 
 export default class Service{
 
-    async get(req, res, relations){
+    async get(relations){
         try{
             const object = await repository.find(relations)
-            return res.status(200).send(object)
+            return object
         } catch (error) {
-            return res.status(400).send({message: error.message})
+            return {message: error.message}
         }
     }
-    async getBy(req, res, param, relations){
+    async getBy(param, relations){
         try{
             const object = await repository.findBy(param, relations)
-            return res.status(200).send(object)
+            return object
         } catch (error) {
-            return res.status(400).send({message: error.message})
+            return {message: error.message}
         }
     }
-    async create(req, res){
+    async create(body){
         try{
-            const object = await repository.save(req)
-            return res.status(200).send(object)
+            const object = await repository.save(body)
+            return object
         } catch (error) {
-            return res.status(400).send({message: error.message})
+            return {message: error.message}
         }
     }
-    async update(req, res, param){
+    async update(body, param){
         try{
-            const object = await repository.update(param, req)
-            return res.status(200).send(object)
+            const object = await repository.update(param, body)
+            return object
         } catch (error) {
-            return res.status(400).send({message: error.message})
+            return {message: error.message}
         }
     }
-    async delete(req, res, param){
+    async delete(param){
         try{
             await repository.delete(param)
-            return res.status(200).send({})
+            return {message: deleted}
         } catch (error) {
-            return res.status(400).send({message: error.message})
+            return {message: error.message}
         }
     }
 }

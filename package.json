@@ -8,7 +8,7 @@
     "master-api": "bin/server.js"
   },
   "scripts": {
-    "dev": "nodemon src/controllers/objectController.js"
+    "dev": "nodemon src/app.js"
   },
   "keywords": [],
   "author": "",

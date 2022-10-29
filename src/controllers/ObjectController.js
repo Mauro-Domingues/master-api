@@ -18,7 +18,7 @@ export default class Controller {
     async get(req, res){
         const relations = {filhos: true, pais: true}
         try{
-            const object = await db.get(req, res, relations)
+            const object = await db.get(relations)
             return res.send({
                 status: 200,
                 message: 'Pegar a mensagem do dicionário',
@@ -38,7 +38,7 @@ export default class Controller {
         const param = {id: Number(id)}
         const relations = {filhos: true, pais: true}
         try{
-            const object = await db.getBy(req, res, param, relations)
+            const object = await db.getBy(param, relations)
             return res.send({
                 status: 200,
                 message: 'Pegar a mensagem do dicionário',
@@ -58,7 +58,7 @@ export default class Controller {
         const param = {name: name}
         const relations = {filhos: true, pais: true}
         try{
-            const object = await db.getBy(req, res, param, relations)
+            const object = await db.getBy(param, relations)
             return res.send({
                 status: 200,
                 message: 'Pegar a mensagem do dicionário',
@@ -78,7 +78,7 @@ export default class Controller {
         const param = {something: something}
         const relations = {filhos: true}
         try{
-            const object = await db.getBy(req, res, param, relations)
+            const object = await db.getBy(param, relations)
             return res.send({
                 status: 200,
                 message: 'Pegar a mensagem do dicionário',
@@ -97,7 +97,7 @@ export default class Controller {
         const {email, password} = req.body
         try{
             const objReturn = await db.get()
-            let = auth ['invalid_Token']
+            let auth = ['invalid_Token']
             for (let i = 0; i < users.length; i++) {
                 if (email === objReturn[i].email) {
                     let check = await bcrypt.compare(password, objReturn[i].password)
